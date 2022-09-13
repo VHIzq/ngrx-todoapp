@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { StoreModule } from '@ngrx/store';
+import { todoReducer } from './todos/todo.reducer';
+
 import { AppComponent } from './app.component';
 import { TodoModule } from './todos/todo.module';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent
-  ],
+  declarations: [AppComponent, FooterComponent],
   imports: [
     BrowserModule,
-    TodoModule
+    TodoModule,
+    StoreModule.forRoot({ todos: todoReducer }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
